@@ -19,7 +19,6 @@ export default function ProfileScreen() {
               <Text style={styles.statNumber}>120</Text>
               <Text style={styles.statLabel}>Posts</Text>
             </View>
-            
           </View>
         </View>
       </View>

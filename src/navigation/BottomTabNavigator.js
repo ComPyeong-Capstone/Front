@@ -31,13 +31,9 @@ export default function BottomTabNavigator() {
 
           return <Ionicons name={iconName} size={size} color={color} />;
         },
-        tabBarActiveTintColor: "#51BCB4",
-        tabBarInactiveTintColor: "white",
-        tabBarStyle: { 
-          height: 60, 
-          paddingBottom: 5, 
-          backgroundColor: "#1F2C3D", // 배경색을rgb(22, 32, 46)로 설정
-        },
+        tabBarActiveTintColor: "#007AFF",
+        tabBarInactiveTintColor: "gray",
+        tabBarStyle: { height: 60, paddingBottom: 5 },
       })}
     >
       <Tab.Screen name="Home" component={HomeScreen} />

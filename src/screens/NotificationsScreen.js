@@ -2,8 +2,8 @@ import React from "react";
 import { View, Text, StyleSheet, FlatList } from "react-native";
 
 const notifications = [
-  { id: '1', message: '🔔 your post' },
-  { id: '2', message: '🔔🔔🔔🔔' },
+  { id: "1", message: "🔔 your post" },
+  { id: "2", message: "🔔🔔🔔🔔" },
 ];
 
 export default function NotificationsScreen() {
