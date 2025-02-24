@@ -11,6 +11,8 @@ export default function PhotoVideoScreen() {
     <View style={styles.container}>
       {/* 단계 진행 표시 UI */}
       <View style={styles.progressContainer}>
+        <View style={styles.progressCircleFilled} />
+        <View style={styles.progressLine} />
         <View style={styles.progressCircle} />
         <View style={styles.progressLine} />
         <View style={styles.progressCircle} />
@@ -66,11 +68,19 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     marginBottom: 30,
   },
-  progressCircle: {
+  progressCircleFilled: {
     width: 15,
     height: 15,
     borderRadius: 10,
     backgroundColor: "#51BCB4",
+  },
+  progressCircle: {
+    width: 15,
+    height: 15,
+    borderRadius: 10,
+    borderWidth: 2,
+    borderColor: "#51BCB4",
+    backgroundColor: "transparent",
   },
   progressLine: {
     width: 50,

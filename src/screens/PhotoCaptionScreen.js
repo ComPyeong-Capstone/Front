@@ -33,12 +33,16 @@ export default function PhotoCaptionScreen() {
 
   return (
     <View style={styles.container}>
+      {/* 단계 진행 표시 UI */}
       <View style={styles.progressContainer}>
         <View style={styles.progressCircle} />
+        <View style={styles.progressLine} />
+        <View style={styles.progressCircleFilled} />
         <View style={styles.progressLine} />
         <View style={styles.progressCircle} />
       </View>
 
+      {/* 사진 선택 및 추가 */}
       <FlatList
         horizontal
         data={images}
@@ -59,6 +63,7 @@ export default function PhotoCaptionScreen() {
         <Text style={styles.buttonText}>사진 추가</Text>
       </TouchableOpacity>
 
+      {/* 자막 입력 */}
       <TextInput
         style={styles.captionInput}
         placeholder="자막 입력"
@@ -67,6 +72,7 @@ export default function PhotoCaptionScreen() {
         onChangeText={handleCaptionChange}
       />
 
+      {/* 버튼 컨테이너 */}
       <View style={styles.buttonContainer}>
         <TouchableOpacity
           style={styles.prevButton}
@@ -104,11 +110,19 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     marginBottom: 20,
   },
-  progressCircle: {
+  progressCircleFilled: {
     width: 15,
     height: 15,
     borderRadius: 10,
     backgroundColor: "#51BCB4",
+  },
+  progressCircle: {
+    width: 15,
+    height: 15,
+    borderRadius: 10,
+    borderWidth: 2,
+    borderColor: "#51BCB4",
+    backgroundColor: "transparent",
   },
   progressLine: {
     width: 50,
