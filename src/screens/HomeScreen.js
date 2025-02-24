@@ -1,7 +1,8 @@
-import React from "react";
-import { View, Text, StyleSheet, FlatList, Image } from "react-native";
+import React, { useState, useEffect } from "react";
+import { View, Text, StyleSheet, FlatList, Image, Alert } from "react-native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
-const videoData = [
+const initialVideoData = [
   {
     id: "1",
     title: "제목",
@@ -29,12 +30,35 @@ const videoData = [
 ];
 
 export default function HomeScreen() {
+  const navigation = useNavigation();
+  const route = useRoute();
+  const [videoData, setVideoData] = useState(initialVideoData);
+
+  // 새로운 영상 게시 처리
+  useEffect(() => {
+    if (route.params?.newPost) {
+      const { title, tags } = route.params.newPost;
+      if (!title) {
+        Alert.alert("게시 실패", "제목을 입력해주세요.");
+        return;
+      }
+      const newVideo = {
+        id: Date.now().toString(),
+        title,
+        user: "새 사용자",
+        tags,
+        thumbnail: "https://via.placeholder.com/150", // 나중에 실제 썸네일 적용
+      };
+      setVideoData((prevData) => [newVideo, ...prevData]);
+    }
+  }, [route.params?.newPost]);
+
   return (
     <View style={styles.container}>
       <Text style={styles.headerText}>VideoAI</Text>
       <FlatList
         data={videoData}
-        numColumns={2} // 두 줄 그리드
+        numColumns={2}
         renderItem={({ item }) => (
           <View style={styles.videoCard}>
             <Image source={{ uri: item.thumbnail }} style={styles.thumbnail} />
@@ -54,7 +78,7 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#1F2C3D", // ProfileScreen과 동일한 배경색
+    backgroundColor: "#1F2C3D",
     padding: 10,
   },
   headerText: {

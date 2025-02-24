@@ -1,6 +1,7 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 
 import HomeScreen from "../screens/HomeScreen";
 import SearchScreen from "../screens/SearchScreen";
@@ -36,7 +37,14 @@ export default function BottomTabNavigator() {
         tabBarStyle: { height: 60, paddingBottom: 5 },
       })}
     >
-      <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen
+        name="Home"
+        component={HomeScreen}
+        options={({ route }) => ({
+          tabBarVisible:
+            getFocusedRouteNameFromRoute(route) !== "VideoPostScreen",
+        })}
+      />
       <Tab.Screen name="Search" component={SearchScreen} />
       <Tab.Screen name="Add" component={AddScreen} />
       <Tab.Screen name="Notifications" component={NotificationsScreen} />
