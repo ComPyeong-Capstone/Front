@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
   progressDot: {
     width: 12,
     height: 12,
-    borderRadius: 10,
+    borderRadius: 0,
   },
   contentContainer: {
     flex: 1, // 컨텐츠를 화면 중앙에 위치하게 함

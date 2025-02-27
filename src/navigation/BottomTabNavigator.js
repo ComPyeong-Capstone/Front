@@ -37,7 +37,7 @@ export default function BottomTabNavigator() {
         },
         tabBarStyle: { height: 70, paddingBottom: 5 },
         tabBarActiveTintColor: "#51BCB4",
-        tabBarInactiveTintColor: "#white",
+        tabBarInactiveTintColor: "white",
           tabBarStyle: {
           backgroundColor: '#1F2C3D', // 하단바 배경 색상
         },
